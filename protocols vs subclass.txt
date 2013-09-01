@@ -1,0 +1,75 @@
+OBJECTIVE C: PROTOCOLS Vs SUBCLASSES
+-------------------------------------
+
+What is a Protocol?
+In the real world, a protocol is a set of rigid rules that a person must follow. Similarly in the programmin world, A protocol is a set of rigid “rules” that a class must follow when performing a specific task. In the case, a “rule” is the methods that a class MUST implement when performing a specific task.
+
+Let’s take the example of a server that we might be building. A server is only complete when it has methods to send and receive data. Therefore it must follow the protocol of implementing the send and receive functions.
+
+What is a Subclass?
+Many times, Objective C requires classes to work with one another. A situation like this demands that a class have certain properties and characteristics that it shares with every other class it interacts with. Inheritance is the age old solution to this problem, and Objective C is no different. All classes are expected to inherit properties from NSObject, and these classes are essentially, subclasses.
+A subclass, therefore, is a class that inherits properties from another class.
+
+DIFFERENCE BETWEEN THEM
+A protocol contains only method declarations that a class using the protocol must implement.
+A protocol never specifies what the implementation of a method should be, as each class may have a specialized application of the method.
+
+A subclass, on the other hand, is an extension of an already defined class, and therefore may or may not implement the methods already defined in its super class. There is no enforcement of overloading the methods and this is only done on a need basis.
+
+Here are a few examples showing the difference between the two.
+
+
+
+//Defining a Protocol
+#import <Foundation/Foundation.h>
+@protocol Book <NSObject>
+-(void) seeChapter;
+-(void) seeIndex;
+@end
+
+//Using a Protocol
+#import <Foundation/Foundation.h>
+@interface MyBook <Book>
+-(void) setName:(NSString *)name;
+@end
+
+//Using the protocol
+#import “MyBook.h”
+@implementation MyBook
+-(void) setName:(NSString *)name
+{
+//Code goes here
+}
+-(void) seeChapter
+{
+//Code goes here
+}
+-(void) seeIndex
+{
+//Code goes here
+}
+@end
+
+//Defining a subclass
+#import <Foundation/Foundation.h>
+@interface Magazine:MyBook
+-(void) setMagazineMonth;
+-(void) getMagazineMonth;
+@end
+
+//Defining a subclass
+#import "Magazine.h"
+@implementation Magazine
+-(void) setMagazineMonth
+{
+//Code goes here
+}
+-(void) getMagazineMonth
+{
+//Code goes here
+}
+@end
+
+
+NIYATI ACHARYA
+1PI10IS069
