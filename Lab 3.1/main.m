@@ -7,7 +7,7 @@ int main(int argc, const char *argv[])
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 
-	double amount ;
+	float amount ;
    	char str[256];
    	
 	NSLog(@"Enter the type of bill: finished goods or groceries");
@@ -24,9 +24,11 @@ int main(int argc, const char *argv[])
 	[good setType:type];
 	[good setAmount:amount];
 
-	NSLog(@"\nAmount without tax : %.3lf\nAmount with tax: %.3lf", [good amount], [good calcTax:good]);
-
-	[pool release];
+	NSLog(@"\nAmount without tax : %.3lf\nAmount with tax: %.3lf", [good amount], [calc calcTax:good]);
+	
+	[calc release];
+	[good release];
+	[pool drain];
 
 	return 0;
 }
