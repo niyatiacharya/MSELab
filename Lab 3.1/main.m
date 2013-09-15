@@ -1,6 +1,6 @@
 #import<Foundation/Foundation.h>
-#import "Goods.m"
-#import "Calculate.m"
+#import "Goods.h"
+#import "Calculate.h"
 
 int main(int argc, const char *argv[])
 {
